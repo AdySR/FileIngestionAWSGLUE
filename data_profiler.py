@@ -24,12 +24,17 @@ import awswrangler as wr
 import json
 from datetime import datetime
 
+from file_data_profiler_process.scan_file import *
+
 #Spark and Glue context
 sc = SparkContext()
 glueContext = GlueContext(sc)
 job = Job(glueContext)
 args = getResolvedOptions(sys.argv, ['JOB_NAME','FILE_NAME'])
 job.init(args['JOB_NAME'], args)
+
+
+init_scan_files()
 
 # input file name from argument 
 file_name = args['FILE_NAME']
