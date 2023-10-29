@@ -23,7 +23,7 @@ def process_scanned_csv_data_profile(source_file_full_path_dict):
         # input_df = wr.s3.read_csv(file_full_path)
         input_df = pd.read_csv(file_full_path)
         output_file_name_csv_profile = f'{data_profile_output}\{file_name_without_ext}_csv_profile.csv'
-        output_file_name_html_profile = f'{data_profile_output}\{file_name_without_ext}_html_profile.html'
+        output_file_name_html_profile = f'{data_profile_output}\{file_name_without_ext}_csv_profile.html'
         profile = pp.ProfileReport(input_df, title="Data Profile Report",  minimal = True)
         profile.to_file(output_file_name_html_profile)
 

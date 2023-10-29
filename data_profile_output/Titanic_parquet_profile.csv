@@ -1,0 +1,13 @@
+File Name,Column Name,Data Type,No. of Values,Distinct,Distinct (%),Is Unique?,Unique,Unique (%),Missing,Missing (%),Mean,Standard deviation,Variance,Minimum,Maximum,Kurtosis,Skewness,Median Absolute Deviation (MAD),Range,5-th percentile,Q1,Median,Q3,95-th percentile,Interquartile range (IQR),Coefficient of variation (CV),Monotonicity
+Titanic.parquet,PassengerId,Numeric,891,891,100.0,True,891,100.0,0,0.0,446.0,257.35,446.0,1.0,891.0,-1.2,0.0,223.0,890,45.5,223.5,446.0,668.5,846.5,445.0,0.58,2.0
+Titanic.parquet,Survived,Numeric,891,2,0.22,False,0,0.0,0,0.0,0.38,0.49,0.38,0.0,1.0,-1.78,0.48,0.0,1,0.0,0.0,0.0,1.0,1.0,1.0,1.27,0.0
+Titanic.parquet,Pclass,Numeric,891,3,0.34,False,0,0.0,0,0.0,2.31,0.84,2.31,1.0,3.0,-1.28,-0.63,0.0,2,1.0,2.0,3.0,3.0,3.0,1.0,0.36,0.0
+Titanic.parquet,Name,Text,891,891,100.0,True,891,100.0,0,0.0,,,,,,,,,,,,,,,,,
+Titanic.parquet,Sex,Text,891,2,0.22,False,0,0.0,0,0.0,,,,,,,,,,,,,,,,,
+Titanic.parquet,Age,Numeric,714,88,12.32,False,16,2.24,177,19.87,29.7,14.53,29.7,0.42,80.0,0.18,0.39,9.0,79.58,4.0,20.12,28.0,38.0,56.0,17.88,0.49,0.0
+Titanic.parquet,SibSp,Numeric,891,7,0.79,False,0,0.0,0,0.0,0.52,1.1,0.52,0.0,8.0,17.88,3.7,0.0,8,0.0,0.0,0.0,1.0,3.0,1.0,2.11,0.0
+Titanic.parquet,Parch,Numeric,891,7,0.79,False,1,0.11,0,0.0,0.38,0.81,0.38,0.0,6.0,9.78,2.75,0.0,6,0.0,0.0,0.0,0.0,2.0,0.0,2.11,0.0
+Titanic.parquet,Ticket,Text,891,681,76.43,False,547,61.39,0,0.0,,,,,,,,,,,,,,,,,
+Titanic.parquet,Fare,Numeric,891,248,27.83,False,97,10.89,0,0.0,32.2,49.69,32.2,0.0,512.33,33.4,4.79,6.9,512.3292,7.22,7.91,14.45,31.0,112.08,23.09,1.54,0.0
+Titanic.parquet,Cabin,Text,204,147,72.06,False,101,49.51,687,77.1,,,,,,,,,,,,,,,,,
+Titanic.parquet,Embarked,Text,889,3,0.34,False,0,0.0,2,0.22,,,,,,,,,,,,,,,,,
