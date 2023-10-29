@@ -1,0 +1,10 @@
+,File Name,Column Name,Data Type,No. of Values,Distinct,Distinct (%),Is Unique?,Unique,Unique (%),Missing,Missing (%),Mean,Standard deviation,Variance,Minimum,Maximum,Kurtosis,Skewness,Median Absolute Deviation (MAD),Range,5-th percentile,Q1,Median,Q3,95-th percentile,Interquartile range (IQR),Coefficient of variation (CV),Monotonicity
+Index,organizations_100.csv,Index,bigint,100,100,100.0,True,100,100.0,0,0.0,50.5,29.01,50.5,1.0,100.0,-1.2,0.0,25.0,99,5.95,25.75,50.5,75.25,95.05,49.5,0.57,2.0
+Organization Id,organizations_100.csv,Organization Id,string,100,100,100.0,True,100,100.0,0,0.0,,,,,,,,,,,,,,,,,
+Name,organizations_100.csv,Name,string,100,100,100.0,True,100,100.0,0,0.0,,,,,,,,,,,,,,,,,
+Website,organizations_100.csv,Website,string,100,100,100.0,True,100,100.0,0,0.0,,,,,,,,,,,,,,,,,
+Country,organizations_100.csv,Country,string,100,84,84.0,False,70,70.0,0,0.0,,,,,,,,,,,,,,,,,
+Description,organizations_100.csv,Description,string,100,100,100.0,True,100,100.0,0,0.0,,,,,,,,,,,,,,,,,
+Founded,organizations_100.csv,Founded,bigint,100,44,44.0,False,13,13.0,0,0.0,1995.41,15.74,1995.41,1970.0,2021.0,-1.18,-0.01,14.0,51,1971.0,1983.5,1995.0,2010.25,2020.0,26.75,0.01,0.0
+Industry,organizations_100.csv,Industry,string,100,72,72.0,False,50,50.0,0,0.0,,,,,,,,,,,,,,,,,
+Number of employees,organizations_100.csv,Number of employees,bigint,100,100,100.0,True,100,100.0,0,0.0,4964.86,2850.86,4964.86,236.0,9995.0,-1.25,-0.03,2565.0,9759,600.05,2741.25,4941.5,7558.0,9079.9,4816.75,0.57,0.0

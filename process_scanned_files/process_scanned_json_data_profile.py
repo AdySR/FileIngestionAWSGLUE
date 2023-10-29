@@ -1,0 +1,3 @@
+def process_scanned_json_data_profile(source_file_full_path_dict):
+    print(source_file_full_path_dict)
+    print('json func')
