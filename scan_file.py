@@ -28,10 +28,6 @@ def init_scan_files():
     file_ingestion_file_source = DEFAULT_SECTION['file_ingestion_file_source']
     data_profile_output = DEFAULT_SECTION['data_profile_output']
 
-    csv_source_file_full_path_list=[]
-    json_source_file_full_path_list=[]
-    parquet_source_file_full_path_list=[]
-
     source_file_list=[]
     csv_source_file_full_path_dict={}
     parquet_source_file_full_path_dict={}
@@ -47,19 +43,18 @@ def init_scan_files():
         parquet_source_file_full_path_dict[os.path.basename(file)] = file
 
 
-
     # if csv_source_file_full_path_dict:
     #     process_scanned_csv_data_profile(source_file_full_path_dict=csv_source_file_full_path_dict)
     # else:
     #     print('##USER_LOG## process_scanned_csv_data_profile: dict is empty')
 
-    # if json_source_file_full_path_list:
+    # if json_source_file_full_path_dict:
     #     process_scanned_json_data_profile(source_file_full_path_dict=json_source_file_full_path_list)
     # else:
     #     print('##USER_LOG## process_scanned_json_data_profile: dict is empty')
 
-    if parquet_source_file_full_path_list:
-        process_scanned_parquet_data_profile(source_file_full_path_dict=parquet_source_file_full_path_list)
+    if parquet_source_file_full_path_dict:
+        process_scanned_parquet_data_profile(source_file_full_path_dict=parquet_source_file_full_path_dict)
     else:
         print('##USER_LOG## process_scanned_parquet_data_profile: dict is empty')
 
