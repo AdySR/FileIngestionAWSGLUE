@@ -1,9 +1,0 @@
-File Name,Column Name,Data Type,No. of Values,Distinct,Distinct (%),Is Unique?,Unique,Unique (%),Missing,Missing (%),Mean,Standard deviation,Variance,Minimum,Maximum,Kurtosis,Skewness,Median Absolute Deviation (MAD),Range,5-th percentile,Q1,Median,Q3,95-th percentile,Interquartile range (IQR),Coefficient of variation (CV),Monotonicity
-file_example_XLS_100.xls,0,Numeric,100,100,100.0,True,100,100.0,0,0.0,50.5,29.01,50.5,1,100,-1.2,0.0,25.0,99,5.95,25.75,50.5,75.25,95.05,49.5,0.57,2.0
-file_example_XLS_100.xls,First Name,Text,100,50,50.0,False,0,0.0,0,0.0,,,,,,,,,,,,,,,,,
-file_example_XLS_100.xls,Last Name,Text,100,50,50.0,False,0,0.0,0,0.0,,,,,,,,,,,,,,,,,
-file_example_XLS_100.xls,Gender,Text,100,2,2.0,False,0,0.0,0,0.0,,,,,,,,,,,,,,,,,
-file_example_XLS_100.xls,Country,Text,100,3,3.0,False,0,0.0,0,0.0,,,,,,,,,,,,,,,,,
-file_example_XLS_100.xls,Age,Numeric,100,23,23.0,False,0,0.0,0,0.0,33.26,8.39,33.26,21,58,0.92,1.04,6.0,37,24.0,26.0,32.0,38.0,52.0,12.0,0.25,0.0
-file_example_XLS_100.xls,Date,Text,100,3,3.0,False,0,0.0,0,0.0,,,,,,,,,,,,,,,,,
-file_example_XLS_100.xls,Id,Numeric,100,43,43.0,False,0,0.0,0,0.0,4717.72,2379.08,4717.72,1258,9654,-0.94,0.52,1875.0,8396,1562.0,2587.0,3574.0,6540.0,8765.0,3953.0,0.5,0.0
