@@ -43,6 +43,9 @@ print('storage:',storage)
 print('source_bucket:',source_bucket)
 print('dir_file_ingestion_source:',dir_file_ingestion_source)
 
+csv_source_file_full_path_dict={}
+parquet_source_file_full_path_dict={}
+excel_source_file_full_path_dict={}
 
 
 s3 = boto3.resource(storage)
@@ -51,17 +54,13 @@ my_bucket = s3.Bucket(source_bucket)
 for object_summary in my_bucket.objects.filter(Prefix=dir_file_ingestion_source):
     # print(object_summary.key)
     if object_summary.key.endswith('csv'):
-        print(f"{storage}://{source_bucket}/{object_summary.key}")
-    
-
+        file_path= f"{storage}://{source_bucket}/{object_summary.key}"
+        print('file_path: ', file_path)
+        file = file_path.split("data/raw/file_ingestion_source/",1)[1]
+        print('file:', file)
+        
 
 """
-
-csv_source_file_full_path_dict={}
-parquet_source_file_full_path_dict={}
-excel_source_file_full_path_dict={}
-
-# print(f'{file_ingestion_source}*.csv')
 
 for file in glob.glob(file_ingestion_source+'\*.csv',recursive = True):
     csv_source_file_full_path_dict[os.path.basename(file)] = file

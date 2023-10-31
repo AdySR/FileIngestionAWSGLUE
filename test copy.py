@@ -1,7 +1,9 @@
-filepath= r's3://iris-etl-framework/data/raw/file_ingestion_source/CustomerData_20220330.csv'
+storage ='s3'
+source_bucket ='iris-etl-framework'
+object_summary = 'data/raw/file_ingestion_source/CustomerData_20220330.csv'
 
-print(filepath.split("data/raw/file_ingestion_source/",1)[1])
-
-f"{storage}://{source_bucket}/{object_summary.key}"
-
-print(filepath[filepath.index('/') + len('/'):])
+file_path= f"{storage}://{source_bucket}/{object_summary}"
+print('file_path: ', file_path)
+file = (file_path.split("data/raw/file_ingestion_source/",1)[1])
+print(file)
+# print('file:,' file)
