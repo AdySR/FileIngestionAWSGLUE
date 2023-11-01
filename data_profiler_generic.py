@@ -47,6 +47,8 @@ csv_source_file_full_path_dict={}
 parquet_source_file_full_path_dict={}
 excel_source_file_full_path_dict={}
 
+excel_options= ['xls','xlsx']
+
 
 s3 = boto3.resource(storage)
 my_bucket = s3.Bucket(source_bucket)
@@ -54,11 +56,28 @@ my_bucket = s3.Bucket(source_bucket)
 for object_summary in my_bucket.objects.filter(Prefix=dir_file_ingestion_source):
     # print(object_summary.key)
     if object_summary.key.endswith('csv'):
-        file_path= f"{storage}://{source_bucket}/{object_summary.key}"
-        print('file_path: ', file_path)
-        file = file_path.split("data/raw/file_ingestion_source/",1)[1]
-        print('file:', file)
+        csv_source_file_full_path_dict[f"{storage}://{source_bucket}/{object_summary.key}".split("data/raw/file_ingestion_source/",1)[1]]= f"{storage}://{source_bucket}/{object_summary.key}"
+
+for object_summary in my_bucket.objects.filter(Prefix=dir_file_ingestion_source):
+    # print(object_summary.key)
+    if object_summary.key.endswith('parquet'):
+        parquet_source_file_full_path_dict[f"{storage}://{source_bucket}/{object_summary.key}".split("data/raw/file_ingestion_source/",1)[1]]= f"{storage}://{source_bucket}/{object_summary.key}"
         
+for object_summary in my_bucket.objects.filter(Prefix=dir_file_ingestion_source):
+    # print(object_summary.key)
+    if any (object_summary.key.endswith(s) for s in excel_options):
+        excel_source_file_full_path_dict[f"{storage}://{source_bucket}/{object_summary.key}".split("data/raw/file_ingestion_source/",1)[1]]= f"{storage}://{source_bucket}/{object_summary.key}"
+    
+                
+        # file_path= f"{storage}://{source_bucket}/{object_summary.key}"
+        # print('file_path: ', file_path)
+        # file = file_path.split("data/raw/file_ingestion_source/",1)[1]
+        # print('file:', file)
+
+
+print(csv_source_file_full_path_dict)
+print(parquet_source_file_full_path_dict)
+
 
 """
 
