@@ -93,60 +93,65 @@ def process_scanned_csv_data_profile(source_file_full_path_dict,data_profile_out
         wr.s3.to_csv(df, path=f'{output_location}{file_name_without_ext}_{run_date}_csv_profile.csv', index=False)
 
 
-read_config =configparser.ConfigParser()
-read_config.read('FileIngestion_Config.ini')
-DEFAULT_SECTION = read_config['DEFAULT']
-
-storage = DEFAULT_SECTION['storage']
-source_bucket = DEFAULT_SECTION['source_bucket']
-dir_file_ingestion_source = DEFAULT_SECTION['file_ingestion_source']
-data_profile_output = DEFAULT_SECTION['data_profile_output']
-file_ingestion_source = f"{storage}://{source_bucket}/{dir_file_ingestion_source}"
-
-csv_source_file_full_path_dict={}
-parquet_source_file_full_path_dict={}
-excel_source_file_full_path_dict={}
-
-excel_options= ['xls','xlsx']
 
 
-s3 = boto3.resource(storage)
-my_bucket = s3.Bucket(source_bucket)
-
-for object_summary in my_bucket.objects.filter(Prefix=dir_file_ingestion_source):
-    if object_summary.key.endswith('csv'):
-        csv_source_file_full_path_dict[f"{storage}://{source_bucket}/{object_summary.key}".split("data/raw/file_ingestion_source/",1)[1]]= f"{storage}://{source_bucket}/{object_summary.key}"
-
-for object_summary in my_bucket.objects.filter(Prefix=dir_file_ingestion_source):
-    if object_summary.key.endswith('parquet'):
-        parquet_source_file_full_path_dict[f"{storage}://{source_bucket}/{object_summary.key}".split("data/raw/file_ingestion_source/",1)[1]]= f"{storage}://{source_bucket}/{object_summary.key}"
-
-for object_summary in my_bucket.objects.filter(Prefix=dir_file_ingestion_source):
-    if any (object_summary.key.endswith(s) for s in excel_options):
-        excel_source_file_full_path_dict[f"{storage}://{source_bucket}/{object_summary.key}".split("data/raw/file_ingestion_source/",1)[1]]= f"{storage}://{source_bucket}/{object_summary.key}"
-
-
-
-
-
-if csv_source_file_full_path_dict:
-    process_scanned_csv_data_profile(source_file_full_path_dict=csv_source_file_full_path_dict,data_profile_output=data_profile_output)
+def init_scan_files():
+    read_config =configparser.ConfigParser()
+    read_config.read('FileIngestion_Config.ini')
+    DEFAULT_SECTION = read_config['DEFAULT']
     
-else:
-    print('##USER_LOG## process_scanned_csv_data_profile: dict is empty')
+    storage = DEFAULT_SECTION['storage']
+    source_bucket = DEFAULT_SECTION['source_bucket']
+    dir_file_ingestion_source = DEFAULT_SECTION['file_ingestion_source']
+    data_profile_output = DEFAULT_SECTION['data_profile_output']
+    file_ingestion_source = f"{storage}://{source_bucket}/{dir_file_ingestion_source}"
+    
+    csv_source_file_full_path_dict={}
+    parquet_source_file_full_path_dict={}
+    excel_source_file_full_path_dict={}
+    
+    excel_options= ['xls','xlsx']
+    
+    
+    s3 = boto3.resource(storage)
+    my_bucket = s3.Bucket(source_bucket)
+    
+    for object_summary in my_bucket.objects.filter(Prefix=dir_file_ingestion_source):
+        if object_summary.key.endswith('csv'):
+            csv_source_file_full_path_dict[f"{storage}://{source_bucket}/{object_summary.key}".split("data/raw/file_ingestion_source/",1)[1]]= f"{storage}://{source_bucket}/{object_summary.key}"
+    
+    for object_summary in my_bucket.objects.filter(Prefix=dir_file_ingestion_source):
+        if object_summary.key.endswith('parquet'):
+            parquet_source_file_full_path_dict[f"{storage}://{source_bucket}/{object_summary.key}".split("data/raw/file_ingestion_source/",1)[1]]= f"{storage}://{source_bucket}/{object_summary.key}"
+    
+    for object_summary in my_bucket.objects.filter(Prefix=dir_file_ingestion_source):
+        if any (object_summary.key.endswith(s) for s in excel_options):
+            excel_source_file_full_path_dict[f"{storage}://{source_bucket}/{object_summary.key}".split("data/raw/file_ingestion_source/",1)[1]]= f"{storage}://{source_bucket}/{object_summary.key}"
+
+    
+    
+    
+    if csv_source_file_full_path_dict:
+        process_scanned_csv_data_profile(source_file_full_path_dict=csv_source_file_full_path_dict,data_profile_output=data_profile_output)
+    else:
+        print('##USER_LOG## process_scanned_csv_data_profile: dict is empty')
+"""    
+
+    if excel_source_file_full_path_dict:
+        process_scanned_excel_data_profile(source_file_full_path_dict=excel_source_file_full_path_dict,data_profile_output=data_profile_output)
+    else:
+        print('##USER_LOG## process_scanned_excel_data_profile: dict is empty')
+    
+    if parquet_source_file_full_path_dict:
+        process_scanned_parquet_data_profile(source_file_full_path_dict=parquet_source_file_full_path_dict,data_profile_output=data_profile_output)
+    else:
+        print('##USER_LOG## process_scanned_parquet_data_profile: dict is empty')
 
 
 
-"""
-if excel_source_file_full_path_dict:
-    process_scanned_excel_data_profile(source_file_full_path_dict=excel_source_file_full_path_dict)
-else:
-    print('##USER_LOG## process_scanned_excel_data_profile: dict is empty')
 
-if parquet_source_file_full_path_dict:
-    process_scanned_parquet_data_profile(source_file_full_path_dict=parquet_source_file_full_path_dict)
-else:
-    print('##USER_LOG## process_scanned_parquet_data_profile: dict is empty')
+
+
 
 
 
@@ -441,12 +446,14 @@ def init_scan_files():
         process_scanned_parquet_data_profile(source_file_full_path_dict=parquet_source_file_full_path_dict)
     else:
         print('##USER_LOG## process_scanned_parquet_data_profile: dict is empty')
+"""
+
 
 
 if (__name__ =='__main__'):
     init_scan_files()
 
-"""
+
 
 
 
